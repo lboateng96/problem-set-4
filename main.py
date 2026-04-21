@@ -16,7 +16,7 @@ def main():
     directories = ['data/part2_plots', 'data/part3_plots', 'data/part4_plots', 'data/part5_plots']
     part1.create_directories(directories)
     
-    pred_universe, arrest_events, charge_counts, charge_counts_by_offense = part1.extract_transform()
+    pred_universe, arrest_events, charge_counts, charge_counts_by_offense, felony_charge, pred_universe_felony = part1.extract_transform()
     
     ##  PART 2: PLOT EXAMPLES  ##
     # Apply plot theme
@@ -30,24 +30,28 @@ def main():
 
     ##  PART 3: BAR PLOTS AND HISTOGRAMS  ##
     # 1
-
+    part3.fta_barplot(pred_universe)
     # 2
-
+    part3.fta_barplot_by_sex(pred_universe)
     # 3
-
+    part3.age_histogram(pred_universe)
     # 4
+    part3.age_histogram_bins(pred_universe)
 
     ##  PART 4: CATEGORICAL PLOTS  ##
     # 1
-    
+    part4.felony_prediction(pred_universe_felony)
     # 2
-
+    part4.nonfelony_prediction(pred_universe_felony)
     # 3
+    part4.felony_prediction_by_outcome(pred_universe_felony)
 
     ##  PART 5: SCATTERPLOTS  ##
     # 1
+    part5.felony_scatter(pred_universe_felony)
     
     # 2
+    part5.felony_prediction_vs_outcome(pred_universe_felony)
 
 
 if __name__ == "__main__":
